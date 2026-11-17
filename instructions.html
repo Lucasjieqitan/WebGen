@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How to start creating — WebGen</title><link rel="stylesheet" href="site.css"></head>
+<body>
+<header class="site-header"><a class="brand" href="index.html"><img src="assets/webgen-logo.jpg" alt="WebGen logo"></a><a class="home-link" href="index.html">Home</a></header>
+<main class="page-main">
+  <section class="page-heading">
+    <h1>How to start creating</h1>
+    <p>If you have the intention to create a good looking and effective website, then you’ve come to the right place.<br>To get started, look at the steps below.</p>
+  </section>
+  <section class="carousel-wrap" aria-label="Website creation steps">
+    <div class="step-card">
+      <img class="step-image" id="stepImage" src="assets/step-one.jpg" alt="Planning a website design">
+      <div class="step-copy"><h2 id="stepTitle">Step 1. Describe your idea</h2><p id="stepText">First of all, you need to gather your ideas and then describe what you want your website to look like. Think about the business, the visitors and the information you want to show.</p></div>
+    </div>
+    <div class="carousel-controls"><button id="prevStep" aria-label="Previous step">‹</button><button id="nextStep" aria-label="Next step">›</button></div>
+    <div class="step-dots" id="stepDots" aria-label="Choose a step"></div>
+  </section>
+  <section class="promo-section">
+    <h2>Create your professional website with a professional design platform</h2>
+    <p>Easy interfaces, attractive designs and satisfying layouts for an exclusive website.<br>Because I care about your best results.<br>Try it right now!</p>
+    <a class="gradient-button" href="generator.html">LET'S GO</a>
+  </section>
+</main>
+<footer class="site-footer"><p>WebGen · Made by Lucas for his Passion Project</p><nav class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a><a href="generator.html">Get started</a></nav></footer>
+<button class="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌃</button>
+<script>
+const steps=[
+ {title:"Step 1. Describe your idea",text:"First of all, you need to gather your ideas and then describe what you want your website to look like. Think about the business, the visitors and the information you want to show.",image:"assets/step-one.jpg",alt:"Planning a website design"},
+ {title:"Step 2. Choose your design",text:"Choose a style and colour theme that suits the business. You can also add the business logo so the website feels recognisable and consistent with its brand.",image:"assets/hero-visual.jpg",alt:"Website design and technology"},
+ {title:"Step 3. Create your website",text:"Generate your website, review the preview and make any changes you need. When you're happy with the result, your website is ready to share.",image:"assets/hero-visual.jpg",alt:"A website preview"}
+];
+let current=0;
+const title=document.getElementById('stepTitle'),text=document.getElementById('stepText'),image=document.getElementById('stepImage'),dots=document.getElementById('stepDots');
+function showStep(n){current=(n+steps.length)%steps.length;const s=steps[current];title.textContent=s.title;text.textContent=s.text;image.src=s.image;image.alt=s.alt;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current))}
+steps.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show step '+(i+1));b.addEventListener('click',()=>showStep(i));dots.appendChild(b)});
+document.getElementById('prevStep').addEventListener('click',()=>showStep(current-1));document.getElementById('nextStep').addEventListener('click',()=>showStep(current+1));showStep(0);
+const back=document.querySelector('.back-top');window.addEventListener('scroll',()=>back.classList.toggle('show',window.scrollY>350),{passive:true});
+</script>
+</body></html>
