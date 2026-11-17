@@ -1,40 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How to start creating — WebGen</title><link rel="stylesheet" href="site.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to start creating — WebGen</title>
+  <link rel="stylesheet" href="site.css">
+</head>
 <body>
-<header class="site-header"><a class="brand" href="index.html"><img src="assets/webgen-logo.jpg" alt="WebGen logo"></a><a class="home-link" href="index.html">Home</a></header>
-<main class="page-main">
-  <section class="page-heading">
-    <h1>How to start creating</h1>
-    <p>If you have the intention to create a good looking and effective website, then you’ve come to the right place.<br>To get started, look at the steps below.</p>
-  </section>
-  <section class="carousel-wrap" aria-label="Website creation steps">
-    <div class="step-card">
-      <img class="step-image" id="stepImage" src="assets/step-one.jpg" alt="Planning a website design">
-      <div class="step-copy"><h2 id="stepTitle">Step 1. Describe your idea</h2><p id="stepText">First of all, you need to gather your ideas and then describe what you want your website to look like. Think about the business, the visitors and the information you want to show.</p></div>
-    </div>
-    <div class="carousel-controls"><button id="prevStep" aria-label="Previous step">‹</button><button id="nextStep" aria-label="Next step">›</button></div>
-    <div class="step-dots" id="stepDots" aria-label="Choose a step"></div>
-  </section>
-  <section class="promo-section">
-    <h2>Create your professional website with a professional design platform</h2>
-    <p>Easy interfaces, attractive designs and satisfying layouts for an exclusive website.<br>Because I care about your best results.<br>Try it right now!</p>
-    <a class="gradient-button" href="generator.html">LET'S GO</a>
-  </section>
-</main>
-<footer class="site-footer"><p>WebGen · Made by Lucas for his Passion Project</p><nav class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a><a href="generator.html">Get started</a></nav></footer>
-<button class="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌃</button>
-<script>
-const steps=[
- {title:"Step 1. Describe your idea",text:"First of all, you need to gather your ideas and then describe what you want your website to look like. Think about the business, the visitors and the information you want to show.",image:"assets/step-one.jpg",alt:"Planning a website design"},
- {title:"Step 2. Choose your design",text:"Choose a style and colour theme that suits the business. You can also add the business logo so the website feels recognisable and consistent with its brand.",image:"assets/hero-visual.jpg",alt:"Website design and technology"},
- {title:"Step 3. Create your website",text:"Generate your website, review the preview and make any changes you need. When you're happy with the result, your website is ready to share.",image:"assets/hero-visual.jpg",alt:"A website preview"}
-];
-let current=0;
-const title=document.getElementById('stepTitle'),text=document.getElementById('stepText'),image=document.getElementById('stepImage'),dots=document.getElementById('stepDots');
-function showStep(n){current=(n+steps.length)%steps.length;const s=steps[current];title.textContent=s.title;text.textContent=s.text;image.src=s.image;image.alt=s.alt;[...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current))}
-steps.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Show step '+(i+1));b.addEventListener('click',()=>showStep(i));dots.appendChild(b)});
-document.getElementById('prevStep').addEventListener('click',()=>showStep(current-1));document.getElementById('nextStep').addEventListener('click',()=>showStep(current+1));showStep(0);
-const back=document.querySelector('.back-top');window.addEventListener('scroll',()=>back.classList.toggle('show',window.scrollY>350),{passive:true});
-</script>
-</body></html>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="WebGen home"><span class="brand-mark">W</span><span class="brand-name">WebGen</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="instructions.html" aria-current="page">How to start</a><a href="privacy.html">Privacy</a><a class="nav-cta" href="generator.html">Create a website</a>
+    </nav>
+  </header>
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">YOUR WEBGEN GUIDE</p>
+      <h1>How to start creating</h1>
+      <p>Three simple stages take you from a first idea to a website you can be proud of.</p>
+    </section>
+
+    <section class="instruction-area section-pad">
+      <div class="instruction-frame">
+        <div class="instruction-topline"><span class="live-dot"></span> THE WEBGEN PROCESS <span class="step-count" id="stepCount">01 / 03</span></div>
+        <div class="instruction-slide active" data-slide="0">
+          <div class="slide-art art-idea"><div class="art-window"><span></span><span></span><span></span><div class="art-lines"></div><div class="art-cursor">✦</div></div></div>
+          <div class="slide-copy"><p class="section-kicker">STEP ONE</p><h2>Describe your idea</h2><p>Start by thinking about the business or project your website is for. Add its name, what it does, who it helps and the sections you want visitors to see.</p><p class="tip">Tip: A clear description gives you a stronger starting point.</p></div>
+        </div>
+        <div class="instruction-slide" data-slide="1">
+          <div class="slide-art art-build"><div class="build-card"><div class="build-bar"></div><div class="build-layout"><div></div><div><i></i><i></i><i></i></div></div><div class="build-footer"></div></div></div>
+          <div class="slide-copy"><p class="section-kicker">STEP TWO</p><h2>Efficient construction</h2><p>Use the generator to shape the page. Organise the information into sections, choose a colour theme and make sure the layout is easy to follow.</p><p class="tip">Tip: Keep the navigation simple and the most important information easy to find.</p></div>
+        </div>
+        <div class="instruction-slide" data-slide="2">
+          <div class="slide-art art-finish"><div class="finish-window"><div class="finish-spark">✦</div><div class="finish-heading"></div><div class="finish-line"></div><div class="finish-button"></div></div></div>
+          <div class="slide-copy"><p class="section-kicker">STEP THREE</p><h2>Impressive product</h2><p>Preview your website and check that the text, colours and sections work together. Make any final edits before sharing your result.</p><p class="tip">Tip: Test your website on a phone or tablet as well as a computer.</p></div>
+        </div>
+        <div class="slide-controls">
+          <button class="slide-button secondary" id="prevSlide" type="button" disabled>← Previous</button>
+          <div class="slide-dots" aria-label="Choose a step"><button class="slide-dot selected" type="button" aria-label="Step 1" data-go="0"></button><button class="slide-dot" type="button" aria-label="Step 2" data-go="1"></button><button class="slide-dot" type="button" aria-label="Step 3" data-go="2"></button></div>
+          <button class="slide-button" id="nextSlide" type="button">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="keyboard-banner instructions-banner">
+      <div class="keyboard-pattern"></div>
+      <div class="banner-content"><p class="eyebrow">READY WHEN YOU ARE</p><h2>Your next idea<br><span>starts here.</span></h2><p>Head to the generator and start building.</p><a class="primary-button" href="generator.html">LET'S GO <span>↗</span></a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark">W</span><span class="brand-name">WebGen</span></a><p>Made by Lucas for his Passion Project.</p><div class="footer-links"><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a></div></footer>
+  <button class="back-to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.instruction-slide')];
+      const dots = [...document.querySelectorAll('.slide-dot')];
+      const prev = document.getElementById('prevSlide');
+      const next = document.getElementById('nextSlide');
+      const count = document.getElementById('stepCount');
+      let current = 0;
+      function show(index) {
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+        dots.forEach((dot, i) => dot.classList.toggle('selected', i === current));
+        prev.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+        count.textContent = `0${current + 1} / 0${slides.length}`;
+      }
+      prev.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      dots.forEach(dot => dot.addEventListener('click', () => show(Number(dot.dataset.go))));
+    })();
+  </script>
+</body>
+</html>

@@ -1,49 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebGen — The Future of Web Developing</title><link rel="stylesheet" href="site.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebGen — The future of web developing</title>
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-<header class="site-header large" id="top">
-  <a class="brand" href="index.html" aria-label="WebGen home"><img src="assets/webgen-logo.jpg" alt="WebGen logo"></a>
-  <a class="home-link" href="index.html">Home</a>
-</header>
-<main>
-  <section class="home-hero">
-    <div class="hero-title"><h1>WebGen</h1></div>
-    <div class="hero-note">
-      <p>Made by Lucas for his Passion Project.</p>
-      <a class="learn-link" href="instructions.html">Learn more <span>›</span></a>
-    </div>
-  </section>
-  <a class="down-button" href="#features" aria-label="Scroll down">↓</a>
-  <div class="hero-art" role="img" aria-label="Futuristic website design illustration"></div>
-  <section class="intro-section" id="features">
-    <h2>Make the perfect website for maximum user experience and satisfaction</h2>
-    <p class="lead">By using WebGen, creating an eye catching user interface has never been easier.</p>
-    <a class="gradient-button" href="generator.html">GET STARTED</a>
-    <div class="feature-grid">
-      <article class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M9 8h46a7 7 0 0 1 7 7v31a7 7 0 0 1-7 7H31L17 63v-10H9a7 7 0 0 1-7-7V15a7 7 0 0 1 7-7Z"/><path fill="#fff" d="M18 23c0-5 12-5 12 0 0 4-5 6-6 9h-4c0-5 6-7 6-9 0-2-6-2-6 1h-2Zm20 0c0-5 12-5 12 0 0 4-5 6-6 9h-4c0-5 6-7 6-9 0-2-6-2-6 1h-2Z"/></svg>
-        <h3>Describe your idea</h3>
-      </article>
-      <article class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="none" stroke="currentColor" stroke-width="6"/><path d="M32 15v18l13 8" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg>
-        <h3>Efficient<br>construction</h3>
-      </article>
-      <article class="feature-card">
-        <svg class="feature-icon" viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M7 28h12v28H7zM25 25l9-18c5 0 7 4 6 8l-2 8h13c6 0 8 5 6 10l-5 17c-1 4-4 6-8 6H25V25Z"/></svg>
-        <h3>Impressive product</h3>
-      </article>
-    </div>
-  </section>
-</main>
-<footer class="site-footer"><p>WebGen · Made by Lucas for his Passion Project</p><nav class="footer-links"><a href="instructions.html">How it works</a><a href="privacy.html">Privacy policy</a><a href="generator.html">Get started</a></nav></footer>
-<button class="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌃</button>
-<script>
-const header=document.querySelector('.site-header'),back=document.querySelector('.back-top');
-function updateScroll(){if(window.scrollY>90){header.classList.remove('large');back.classList.add('show')}else{header.classList.add('large');back.classList.remove('show')}}
-window.addEventListener('scroll',updateScroll,{passive:true});updateScroll();
-</script>
-</body></html>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="WebGen home">
+      <span class="brand-mark">W</span><span class="brand-name">WebGen</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="instructions.html">How to start</a>
+      <a href="privacy.html">Privacy</a>
+      <a class="nav-cta" href="generator.html">Create a website</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="hero-content">
+        <div class="hero-logo-wrap"><span class="brand-mark hero-mark">W</span></div>
+        <p class="eyebrow hero-eyebrow">THE FUTURE OF WEB DEVELOPING</p>
+        <h1>WebGen</h1>
+        <p class="hero-subtitle">Made by Lucas for his Passion Project.</p>
+        <a class="learn-link" href="#about">Learn more <span class="down-arrow">↓</span></a>
+      </div>
+      <div class="hero-orbit orbit-a"></div>
+      <div class="hero-orbit orbit-b"></div>
+      <div class="hero-wave"></div>
+    </section>
+
+    <section class="intro section-pad" id="about">
+      <div class="section-kicker">WELCOME TO WEBGEN</div>
+      <h2>Make something <span class="gradient-text">impressive.</span></h2>
+      <p class="intro-copy">Make the perfect website for maximum user experience and satisfaction. WebGen helps turn a business idea into a website concept through a simple, guided process.</p>
+      <a class="primary-button" href="generator.html">GET STARTED <span>↗</span></a>
+    </section>
+
+    <section class="steps-section section-pad">
+      <div class="section-kicker">A SIMPLE PROCESS</div>
+      <h2>From idea to website.</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon icon-chat">✎</div>
+          <h3>Describe your idea</h3>
+          <p>Tell WebGen what kind of website you want to create and what it should include.</p>
+          <span class="card-number">01</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-build">⌘</div>
+          <h3>Efficient construction</h3>
+          <p>Build a clear page structure with sections that make sense for your business.</p>
+          <span class="card-number">02</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon icon-star">✦</div>
+          <h3>Impressive product</h3>
+          <p>Preview your result, refine the details and get ready to share your website.</p>
+          <span class="card-number">03</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="keyboard-banner">
+      <div class="keyboard-pattern"></div>
+      <div class="banner-content">
+        <p class="eyebrow">YOUR IDEA. YOUR WEBSITE.</p>
+        <h2>Ready to create<br><span>something great?</span></h2>
+        <p>Start with an idea and see where it takes you.</p>
+        <a class="primary-button" href="generator.html">LET'S GO <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html"><span class="brand-mark">W</span><span class="brand-name">WebGen</span></a>
+    <p>Made by Lucas for his Passion Project.</p>
+    <div class="footer-links"><a href="instructions.html">How to start</a><a href="privacy.html">Privacy policy</a></div>
+  </footer>
+  <button class="back-to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</body>
+</html>
