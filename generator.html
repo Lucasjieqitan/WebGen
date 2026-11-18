@@ -31,6 +31,32 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:lin
     transform: translateY(-2px);
     filter: brightness(1.15);
 }
+.custom-colour {
+    margin-top: 22px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+}
+
+.custom-colour-controls {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.custom-colour-controls input[type="color"] {
+    width: 65px;
+    height: 50px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.custom-colour-controls input[type="text"] {
+    flex: 1;
+    text-transform: uppercase;
+}
 </style>
 </head>
 <body>
@@ -73,17 +99,33 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:lin
       <button class="style" type="button" data-style="Creative"><span class="glyph">🎨</span>Creative</button>
       <button class="style" type="button" data-style="Futuristic"><span class="glyph">✦</span>Futuristic</button>
     </div>
-    <div class="rule"></div>
-    <h2 class="step"><span class="num">3</span> Pick a Colour Theme</h2>
     <div class="colors" id="colors" aria-label="Colour themes">
-      <button class="swatch blue selected" type="button" data-color="blue" aria-label="Blue theme"></button>
-      <button class="swatch purple" type="button" data-color="purple" aria-label="Purple theme"></button>
-      <button class="swatch teal" type="button" data-color="teal" aria-label="Teal theme"></button>
-      <button class="swatch orange" type="button" data-color="orange" aria-label="Orange theme"></button>
-    </div>
-    <button class="generate" id="generateButton" type="button">✧ &nbsp; Generate Website &nbsp; ›</button>
-    <p class="hint">This starter version uses a built-in template. The AI connection can be added later without redesigning this page.</p>
-  </section>
+
+  <button class="swatch blue selected" type="button" data-color="blue" aria-label="Blue theme"></button>
+
+  <button class="swatch purple" type="button" data-color="purple" aria-label="Purple theme"></button>
+
+  <button class="swatch teal" type="button" data-color="teal" aria-label="Teal theme"></button>
+
+  <button class="swatch orange" type="button" data-color="orange" aria-label="Orange theme"></button>
+
+</div>
+
+<div class="custom-colour">
+
+  <label for="customColour">Custom Colour</label>
+
+  <div class="custom-colour-controls">
+
+    <input type="color" id="customColour" value="#087dff">
+
+    <input type="text" id="customHex" value="#087DFF" maxlength="7" placeholder="#087DFF">
+
+  </div>
+
+  <p class="hint">Choose any colour or enter its HEX code.</p>
+
+</div>
 
   <section class="panel preview-panel">
     <div class="preview-head">
