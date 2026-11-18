@@ -151,7 +151,12 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;background:lin
 </main>
 
 <script>
-const state = { style: "Minimal", color: "blue", device: "desktop" };
+const state = {
+  style: "Minimal",
+  color: "blue",
+  customHex: "#087dff",
+  device: "desktop"
+};
 const themes = {
   blue:   {a:"#087dff",b:"#18cfff",bg:"#071d54",text:"#ffffff"},
   purple: {a:"#7b2cff",b:"#e14cff",bg:"#211044",text:"#ffffff"},
@@ -169,6 +174,32 @@ document.querySelectorAll(".swatch").forEach(button => button.addEventListener("
   button.classList.add("selected");
   state.color = button.dataset.color;
 }));
+    const colourPicker = document.getElementById("customColour");
+const hexInput = document.getElementById("customHex");
+
+function applyCustomColour(hex) {
+  state.color = "custom";
+  state.customHex = hex.toLowerCase();
+
+  colourPicker.value = state.customHex;
+  hexInput.value = state.customHex.toUpperCase();
+
+  document.querySelectorAll(".swatch").forEach(item => {
+    item.classList.remove("selected");
+  });
+}
+
+colourPicker.addEventListener("input", () => {
+  applyCustomColour(colourPicker.value);
+});
+
+hexInput.addEventListener("input", () => {
+  const hex = hexInput.value.trim();
+
+  if (/^#[0-9a-fA-F]{6}$/.test(hex)) {
+    applyCustomColour(hex);
+  }
+});
 document.querySelectorAll(".device").forEach(button => button.addEventListener("click", () => {
   document.querySelectorAll(".device").forEach(item => item.classList.remove("selected"));
   button.classList.add("selected");
@@ -180,8 +211,33 @@ document.querySelectorAll(".device").forEach(button => button.addEventListener("
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
 }
+function adjustHex(hex, amount) {
+  const clean = hex.replace("#", "");
+
+  const channels = [0, 2, 4].map(i =>
+    parseInt(clean.slice(i, i + 2), 16)
+  );
+
+  const adjusted = channels.map(channel => {
+    const target = amount >= 0 ? 255 : 0;
+    return Math.round(
+      channel + (target - channel) * Math.abs(amount) / 100
+    );
+  });
+
+  return "#" + adjusted
+    .map(channel => channel.toString(16).padStart(2, "0"))
+    .join("");
+}
 function buildTemplate(data) {
-  const theme = themes[data.color];
+  const theme = data.color === "custom"
+  ? {
+      a: data.customHex,
+      b: adjustHex(data.customHex, 28),
+      bg: adjustHex(data.customHex, -72),
+      text: "#ffffff"
+    }
+  : themes[data.color];
   const name = escapeHTML(data.name || "Your Business");
   const type = escapeHTML(data.type || "Local Business");
   const description = escapeHTML(data.description || "Welcome to our website. Find out more about what we do and how we can help.");
@@ -216,6 +272,7 @@ document.getElementById("generateButton").addEventListener("click", () => {
     description: document.getElementById("description").value.trim(),
     style: state.style,
     color: state.color
+    customHex: state.customHex
   };
   if (!data.name) {
     document.getElementById("businessName").focus();
